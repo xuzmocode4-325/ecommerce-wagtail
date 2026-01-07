@@ -19,12 +19,21 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
+from wagtail_headless_preview import urls as headless_preview_urls
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", api.urls),
+    path("headless-preview/", include(headless_preview_urls)),
     path("schema-viewer/", include("schema_viewer.urls")), 
     path('accounts/', include('accounts.urls')),
+    path('cms/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    path('pages/', include(wagtail_urls)),
 ]
 
 if settings.DEBUG:
