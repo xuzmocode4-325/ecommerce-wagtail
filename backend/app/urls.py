@@ -30,7 +30,6 @@ urlpatterns = [
     path("api/", api.urls),
     path("headless-preview/", include(headless_preview_urls)),
     path("schema-viewer/", include("schema_viewer.urls")), 
-    path('accounts/', include('accounts.urls')),
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
     path('pages/', include(wagtail_urls)),
